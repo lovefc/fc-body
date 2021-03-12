@@ -1,3 +1,8 @@
+/*
+ * @Author       : lovefc
+ * @Date         : 2021-03-11 16:30:50
+ * @LastEditTime : 2021-03-12 14:56:01
+ */
 const Koa = require('koa');
 
 const app = new Koa();
@@ -50,21 +55,21 @@ app.use(async (ctx, next) => {
 let body = new fc_body();
 
 // 带入koa框架中
-app.use(async (ctx,next) => {
+app.use(async (ctx, next) => {
     try {
-      let post = await body.getBody(ctx.req);
-	  // 这里是数据,可以传给
-	  ctx.post = post;
+        let post = await body.getBody(ctx.req);
+        // 这里是数据,可以传给
+        ctx.post = post;
     } catch (e) {
-	  // 这里是错误
-      console.log(e);
-    }		
-	await next();
+        // 这里是错误
+        console.log(e);
+    }
+    await next();
 });
 
 router.get('/app/upload', async function (ctx, next) {
-	// 这里可以进行打印
-	console.log(ctx.post);
+    // 这里可以进行打印
+    console.log(ctx.post);
     ctx.body = 'hello';
 });
 
