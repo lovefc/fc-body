@@ -1,0 +1,29 @@
+{
+	"name": "fc-body",
+	"version": "0.0.1",
+	"description": "http-body解析",
+	"keywords": [
+		"http-body",
+		"post",
+		"upfile",
+		"http-body解析"
+	],
+	"homepage": "https://github.com/lovefc/fc-body",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/lovefc/fc-body.git"
+	},
+
+	"author": {
+		"name": "lovefc",
+		"email": "fcphp@qq.com",
+		"url": "https://lovefc.cn"
+	},
+	
+	"engines": {
+		"node": ">= 8.0.0"
+	},
+	
+	"license": "Apache License 2.0"
+}
