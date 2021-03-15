@@ -1,7 +1,7 @@
 /*
  * @Author       : lovefc
  * @Date         : 2021-03-11 16:30:50
- * @LastEditTime : 2021-03-12 14:56:01
+ * @LastEditTime : 2021-03-15 15:21:27
  */
 const Koa = require('koa');
 
@@ -79,4 +79,6 @@ router.all('/', function (ctx, next) {
 
 app.use(router.routes());
 
-app.listen(3008);
+app.listen(3008, () => {
+    console.log('Server listening on http://localhost:3008/ ...');
+});

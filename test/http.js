@@ -1,7 +1,7 @@
 /*
  * @Author       : lovefc
  * @Date         : 2021-03-11 15:34:02
- * @LastEditTime : 2021-03-12 14:56:30
+ * @LastEditTime : 2021-03-15 17:27:42
  */
 const http = require('http');
 const fc_body = require('../index.js');
@@ -17,19 +17,22 @@ const server = http.createServer(async (req, res) => {
   //设置响应头信息
   res.setHeader("X-Powered-By", ' 3.2.1');
   if (req.url === '/app/upload') {
+    res.writeHead(200, {
+      'content-type': 'text/html'
+    });
     let body = new fc_body();
+    let post = '';
+    // 注意,在{}里面的都是局部变量
     try {
-      let post = await body.getBody(req);
-      console.log(post);
+      post = await body.getBody(req);
+      console.log(post)
     } catch (e) {
       console.log(e);
     }
-    res.writeHead(200, {
-      'content-type': 'application/json'
-    });
-    res.end('hello world');
+    res.end(post.title);
     return;
   }
+
   res.writeHead(200, {
     'content-type': 'text/html'
   });
