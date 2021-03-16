@@ -1,10 +1,10 @@
 /*
  * @Author       : lovefc
  * @Date         : 2021-03-11 15:34:02
- * @LastEditTime : 2021-03-15 17:27:42
+ * @LastEditTime : 2021-03-16 16:00:11
  */
 const http = require('http');
-const fc_body = require('../index.js');
+const fc_body = require('fc_body');
 
 const server = http.createServer(async (req, res) => {
 
@@ -20,7 +20,10 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(200, {
       'content-type': 'text/html'
     });
-    let body = new fc_body();
+    let body = new fc_body({
+      isAutoSaveFile: true,
+      savePath: __dirname + "/upload"
+    });
     let post = '';
     // 注意,在{}里面的都是局部变量
     try {
@@ -36,14 +39,8 @@ const server = http.createServer(async (req, res) => {
   res.writeHead(200, {
     'content-type': 'text/html'
   });
-  res.end(`
-    <form action="/app/upload" enctype="multipart/form-data" method="post">
-      <div>Text: <input type="text" name="title" /></div>
-      <div>File: <input type="file" name="file" multiple="multiple" /></div>
-      <input type="submit" value="Upload" />
-    </form>
-  `);
-});
+  res.end(`<link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.css"rel="stylesheet"><br/><br/><br/><div style="width:600px;background-color:#F1F1F1;margin:auto;top:100px;padding:40px;"><form action="/app/upload"method="post"enctype="multipart/form-data"><div class="form-group row"><label class="col-sm-2 col-form-label">Title</label><div class="col-sm-10"><input type="text"class="form-control"name="title"value=""></div></div><div class="form-group row"><label class="col-sm-2 col-form-label">Files</label><div class="col-sm-10"><input type="file"class="form-control-file"name="files"></div></div><button type="submit"class="btn btn-primary">上传</button></form></div>`);
+})
 
 server.listen(3007, () => {
   console.log('Server listening on http://localhost:3007/ ...');

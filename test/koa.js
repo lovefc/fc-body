@@ -9,7 +9,7 @@ const app = new Koa();
 
 const router = require('@koa/router')();
 
-const fc_body = require('../index.js');
+const fc_body = require('fc_body');
 
 // 这只是跨域
 app.use(async (ctx, next) => {
@@ -52,7 +52,10 @@ app.use(async (ctx, next) => {
 });
 
 // 实例化fc-body
-let body = new fc_body();
+let body = new fc_body({
+    isAutoSaveFile: true,
+    savePath: __dirname + "/upload"
+});
 
 // 带入koa框架中
 app.use(async (ctx, next) => {
@@ -67,14 +70,15 @@ app.use(async (ctx, next) => {
     await next();
 });
 
-router.get('/app/upload', async function (ctx, next) {
+router.post('/app/upload', async function (ctx, next) {
     // 这里可以进行打印
     console.log(ctx.post);
     ctx.body = 'hello';
 });
 
 router.all('/', function (ctx, next) {
-    ctx.body = 'hello world';
+	ctx.set('content-type','text/html');
+    ctx.body = '<link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.css"rel="stylesheet"><br/><br/><br/><div style="width:600px;background-color:#F1F1F1;margin:auto;top:100px;padding:40px;"><form action="/app/upload"method="post"enctype="multipart/form-data"><div class="form-group row"><label class="col-sm-2 col-form-label">Title</label><div class="col-sm-10"><input type="text"class="form-control"name="title"value=""></div></div><div class="form-group row"><label class="col-sm-2 col-form-label">Files</label><div class="col-sm-10"><input type="file"class="form-control-file"name="files"></div></div><button type="submit"class="btn btn-primary">上传</button></form></div>';
 });
 
 app.use(router.routes());
