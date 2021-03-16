@@ -6,7 +6,7 @@
 ```
 //  promise对象
 const fc_body = require('fc_body');
-let body = new fc_body({option});
+let body = new fc_body({isAutoSaveFile: true, savePath: __dirname+"/upload"});
 let post = '';
 http.createServer(async (req,res) => {
     try {
