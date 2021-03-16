@@ -4,7 +4,7 @@
  * @LastEditTime : 2021-03-16 16:00:11
  */
 const http = require('http');
-const fc_body = require('fc_body');
+const fc_body = require('fc-body');
 
 const server = http.createServer(async (req, res) => {
 

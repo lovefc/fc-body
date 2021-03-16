@@ -9,7 +9,7 @@ const app = new Koa();
 
 const router = require('@koa/router')();
 
-const fc_body = require('fc_body');
+const fc_body = require('fc-body');
 
 // 这只是跨域
 app.use(async (ctx, next) => {
