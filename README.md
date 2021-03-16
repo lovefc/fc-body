@@ -29,7 +29,8 @@ http.createServer(async (req,res) => {
 | errorMsg | object | 否 |  {'TIMEOUT':'POST超时','UNDERSIZE':'数据过小','OVERSIZE':'数据过大','NOTALLOWEDTYPE':'不允许的类型'} | 错误消息|
 
 **使用参考**
-* Koa参考实例  : [test/koa.js](test/koa.js)
+
+* Koa2参考实例 : [test/koa.js](test/koa.js)
 * Htpp参考实例 : [test/http.js](test/http.js)
 
 **作者备注**
