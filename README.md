@@ -12,7 +12,7 @@ npm install fc-body
 **如何使用：** 
 ```
 //  promise对象
-const fc_body = require('fc_body');
+const fc_body = require('fc-body');
 let body = new fc_body({isAutoSaveFile: true, savePath: __dirname+"/upload"});
 let post = '';
 http.createServer(async (req,res) => {
