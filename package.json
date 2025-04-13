@@ -1,6 +1,6 @@
 {
 	"name": "fc-body",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "http-body解析",
 	"keywords": [
 		"http-body",
@@ -14,16 +14,16 @@
 		"type": "git",
 		"url": "https://github.com/lovefc/fc-body.git"
 	},
-
 	"author": {
 		"name": "lovefc",
 		"email": "fcphp@qq.com",
 		"url": "https://lovefc.cn"
 	},
-	
 	"engines": {
 		"node": ">= 8.0.0"
 	},
-	
-	"license": "Apache License 2.0"
+	"license": "Apache License 2.0",
+	"dependencies": {
+		"mime-types": "3.0.1"
+	}
 }

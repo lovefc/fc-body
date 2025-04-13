@@ -37,10 +37,9 @@ http.createServer(async (req,res) => {
 
 **使用参考**
 
-* Koa2参考实例 : [test/koa.js](test/koa.js)
-* Htpp参考实例 : [test/http.js](test/http.js)
+>更多使用demo请看这里 >>> [戳这里](https://github.com/lovefc/fc-body-demo)
 
 **作者备注**
 - 如果发现问题，欢迎向我反馈，毕竟一个人测试有限，会有注意不到的地方。
 - 作者QQ：1102952084
-- 作者博客：lovefc.cn
+- 作者博客：blog.lovefc.cn
